@@ -1,4 +1,4 @@
-## 👥 Authors
+## Authors
 
 | Code      | Username                   | Full Name                      |
 |-----------|----------------------------|--------------------------------|
@@ -8,49 +8,49 @@
 
 ---
 
-## 📊 Analysis of Results and Visualization
+## Analysis of Results and Visualization
 
 The following figures illustrate the routing solution for the three problem scenarios defined in the project. Each graph visually represents how cargo is delivered across the network, showing the movement of vehicles between depots, clients, and stations (when applicable). Each vehicle is assigned a distinct color, and the nodes are shaped according to their role in the model.
 
 ---
 
-### 🟥 Case I – Basic Routing with Capacity Constraints
+### Case I – Basic Routing with Capacity Constraints
 
 - This scenario contains only depots and clients.
 - Vehicles are constrained by their maximum cargo capacity.
 - Each client is visited exactly once.
 - The objective function minimizes transport and maintenance costs.
 
-📄 **CSV Output**: [`model/I/solution.csv`](/models/I/solution.csv)
+**CSV Output**: [`model/I/solution.csv`](/models/I/solution.csv)
 
 ---
 
-### 🔵 Case II – Routing with Fuel Autonomy and Refueling
+### Case II – Routing with Fuel Autonomy and Refueling
 
 - This scenario includes fuel stations and autonomy constraints.
 - Vehicles may refuel at designated stations when needed.
 - The model ensures fuel sufficiency across the route through explicit fuel flow constraints.
 - Capacity and routing rules from Case I still apply.
 
-📄 **CSV Output**: [`model/II/solution.csv`](/models/II/solution.csv)
+**CSV Output**: [`model/II/solution.csv`](/models/II/solution.csv)
 
 ---
 
-### 🛣️ Case III – Routing with Refueling and Tolls
+### Case III – Routing with Refueling and Tolls
 
 - Toll costs are added to the previous case, including both fixed per-client fees and variable surcharges based on delivered cargo.
 - The solver must balance tolls, refueling, cargo, and distance.
 - Despite the increased complexity, the solver finds a feasible configuration that respects delivery, capacity, and autonomy requirements.
 
-📄 **CSV Output**: [`model/III/solution.csv`](/models/III/solution.csv)
+**CSV Output**: [`model/III/solution.csv`](/models/III/solution.csv)
 
 ---
 
-> ⚠️ **Note:** Given the computational weight of the three scenarios—particularly Case III—the solver may terminate before reaching global optimality. Nonetheless, all key requirements are respected in the output: cargo limits, autonomy, refueling rules, and toll structures. Routes may not form perfectly optimal cycles but are valid, coherent, and interpretable under real constraints.
+> **Note:** Given the computational weight of the three scenarios—particularly Case III—the solver may terminate before reaching global optimality. Nonetheless, all key requirements are respected in the output: cargo limits, autonomy, refueling rules, and toll structures. Routes may not form perfectly optimal cycles but are valid, coherent, and interpretable under real constraints.
 
 ---
 
-## 🧠 Implementation Rationale and Structure
+## Implementation Rationale and Structure
 
 ### Unified Model Design
 
